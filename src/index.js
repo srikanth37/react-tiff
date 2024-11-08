@@ -205,10 +205,10 @@ export const TIFFViewer = forwardRef(function TiffFileViewer(
             className={styles.button}
             type='button'
           >
-            {t('Previous')}
+            {t('TIFFVIEWER.PREVIOUS')}
           </button>
           <span className={styles.span}>
-            {t('Page of total', { page: page + 1, total: pages.length })}
+            {t('TIFFVIEWER.PAGINATION', { page: page + 1, total: pages.length })}
           </span>
           <button
             style={{ backgroundColor: buttonColor }}
@@ -217,7 +217,7 @@ export const TIFFViewer = forwardRef(function TiffFileViewer(
             className={styles.button}
             type='button'
           >
-            {t('Next')}
+            {t('TIFFVIEWER.NEXT')}
           </button>
         </div>
       )}
