@@ -2,90 +2,8 @@ import React, { forwardRef, useEffect } from 'react'
 import styles from './styles.module.css'
 import UTIF from 'utif'
 import axios from 'axios'
-import i18n from 'i18next'
 import { useTranslation, initReactI18next } from 'react-i18next'
 import PropTypes from 'prop-types'
-
-i18n.use(initReactI18next).init({
-  resources: {
-    en: {
-      translation: {
-        Next: 'Next',
-        Previous: 'Previous',
-        'Page of total': 'Page {{page}} of {{total}}'
-      }
-    },
-    tr: {
-      translation: {
-        Next: 'Sonraki',
-        Previous: 'Önceki',
-        'Page of total': '{{ page }}. sayfa / {{ total }}'
-      }
-    },
-    de: {
-      translation: {
-        Next: 'Nächste',
-        Previous: 'Vorherige',
-        'Page of total': 'Seite {{page}} von {{total}}'
-      }
-    },
-    fr: {
-      translation: {
-        Next: 'Suivant',
-        Previous: 'Précédent',
-        'Page of total': 'Page {{page}} sur {{total}}'
-      }
-    },
-    es: {
-      translation: {
-        Next: 'Siguiente',
-        Previous: 'Anterior',
-        'Page of total': 'Página {{page}} de {{total}}'
-      }
-    },
-    ja: {
-      translation: {
-        Next: '次へ',
-        Previous: '前へ',
-        'Page of total': '{{page}} / {{total}} ページ'
-      }
-    },
-    zh: {
-      translation: {
-        Next: '下一页',
-        Previous: '上一页',
-        'Page of total': '第 {{page}} 页，共 {{total}} 页'
-      }
-    },
-    ru: {
-      translation: {
-        Next: 'Следующий',
-        Previous: 'Предыдущий',
-        'Page of total': 'Страница {{page}} из {{total}}'
-      }
-    },
-    ar: {
-      translation: {
-        Next: 'التالى',
-        Previous: 'سابق',
-        'Page of total': 'صفحة {{page}} من {{total}}'
-      }
-    },
-    hi: {
-      translation: {
-        Next: 'अगला',
-        Previous: 'पिछला',
-        'Page of total': 'पृष्ठ {{page}} का {{total}}'
-      }
-    }
-  },
-  lng: 'tr',
-  fallbackLng: 'en',
-
-  interpolation: {
-    escapeValue: false
-  }
-})
 
 export const TIFFViewer = forwardRef(function TiffFileViewer(
   {
@@ -207,10 +125,6 @@ export const TIFFViewer = forwardRef(function TiffFileViewer(
       canvasRef.current.appendChild(pages[page])
     }
   }, [page, pages])
-
-  useEffect(() => {
-    i18n.changeLanguage(lang)
-  }, [lang])
 
   // ref all page print
   React.useImperativeHandle(ref, () => ({
