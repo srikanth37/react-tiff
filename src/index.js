@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect } from 'react'
-import styles from './styles.module.css'
+import './index.css'
 import UTIF from 'utif'
 import axios from 'axios'
 import { useTranslation, initReactI18next } from 'react-i18next'
@@ -36,8 +36,8 @@ export const TIFFViewer = forwardRef(function TiffFileViewer(
       UTIF.decodeImage(e.target.response, ifd)
       var rgba = UTIF.toRGBA8(ifd)
       var canvas = document.createElement('canvas')
-      canvas.width = ifd.width
-      canvas.height = ifd.height
+      canvas.width = ifd.width * zoom
+      canvas.height = ifd.height * zoom
       var ctx = canvas.getContext('2d')
       var img = ctx.createImageData(ifd.width, ifd.height)
       img.data.set(rgba)
@@ -140,13 +140,13 @@ export const TIFFViewer = forwardRef(function TiffFileViewer(
   }))
 
   return (
-    <div className={styles.container} id='tiff-container' ref={ref} {...rest}>
+    <div className={styles.tiffviewerContainer} id='tiff-container' ref={ref} {...rest}>
       {printable && (
         <button
           id='btn-print'
           onClick={handlePrintClick}
           ref={btnPrintRef}
-          className={styles.btnPrint}
+          className={styles.tiffviewerBtnPrint}
           type='button'
         >
           <svg
@@ -165,20 +165,20 @@ export const TIFFViewer = forwardRef(function TiffFileViewer(
           </svg>
         </button>
       )}
-      <div className={styles.arrow}>
+      <div className={styles.tiffviewerArrow}>
         <div
           id='tiff-inner-container'
-          className={styles.inner}
+          className={styles.tiffviewerInner}
           ref={canvasRef}
         />
 
         {paginate === 'ltr' && pages.length > 1 && (
-          <div className={styles.absolute} id='absolute' ref={paginateLTRRef}>
+          <div className={styles.tiffviewerAbsolute} id='absolute' ref={paginateLTRRef}>
             <button
               style={{ backgroundColor: buttonColor }}
               disabled={page === 0}
               onClick={handlePreviousClick}
-              className={styles.button}
+              className={styles.tiffviewerButton}
               type='button'
             >
               {t('<')}
@@ -187,7 +187,7 @@ export const TIFFViewer = forwardRef(function TiffFileViewer(
               style={{ backgroundColor: buttonColor }}
               disabled={page === pages.length - 1}
               onClick={handleNextClick}
-              className={styles.button}
+              className={styles.tiffviewerButton}
               type='button'
             >
               {t('>')}
@@ -202,19 +202,19 @@ export const TIFFViewer = forwardRef(function TiffFileViewer(
             style={{ backgroundColor: buttonColor }}
             disabled={page === 0}
             onClick={handlePreviousClick}
-            className={styles.button}
+            className={styles.tiffviewerButton}
             type='button'
           >
             {t('TIFFVIEWER.PREVIOUS')}
           </button>
-          <span className={styles.span}>
+          <span className={styles.tiffviewerSpan}>
             {t('TIFFVIEWER.PAGINATION', { page: page + 1, total: pages.length })}
           </span>
           <button
             style={{ backgroundColor: buttonColor }}
             disabled={page === pages.length - 1}
             onClick={handleNextClick}
-            className={styles.button}
+            className={styles.tiffviewerButton}
             type='button'
           >
             {t('TIFFVIEWER.NEXT')}

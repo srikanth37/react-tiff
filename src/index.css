@@ -1,6 +1,6 @@
 /* add css module styles here (optional) */
 
-.container {
+.tiffviewer-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.arrow {
+.tiffviewer-arrow {
   position: relative;
   max-width: 1024px;
   width: 100%;
@@ -23,7 +23,7 @@
   justify-content: center;
 }
 
-.arrow .inner {
+.tiffviewer-arrow .tiffviewer-inner {
   position: relative;
   max-width: 1024px;
   width: 100%;
@@ -33,7 +33,7 @@
   justify-content: center;
 }
 
-canvas {
+.tiffviewer-canvas {
   max-width: 1024px;
   width: fit-content;
   height: 100%;
@@ -41,11 +41,11 @@ canvas {
   object-fit: contain;
 }
 
-canvas:hover {
+.tiffviewer-canvas:hover {
   cursor: pointer;
 }
 
-.button {
+.tiffviewer-button {
   padding: 0.4rem 2rem;
   border: none;
   border-radius: 0.25rem;
@@ -55,12 +55,12 @@ canvas:hover {
   cursor: pointer;
 }
 
-.button:disabled {
+.tiffviewer-button:disabled {
   background-color: #ccc !important;
   cursor: not-allowed !important;
 }
 
-.span {
+.tiffviewer-span {
   margin: 0 16px;
   font-size: 1rem;
   font-weight: 500;
@@ -70,7 +70,7 @@ canvas:hover {
   text-align: center;
 }
 
-.absolute button {
+.tiffviewer-absolute .tiffviewer-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -83,24 +83,24 @@ canvas:hover {
   padding: 5px 12px;
 }
 
-.absolute button:nth-child(1) {
+.tiffviewer-absolute .tiffviewer-button:nth-child(1) {
   left: 5%;
 }
 
-.absolute button:nth-child(2) {
+.tiffviewer-absolute .tiffviewer-button:nth-child(2) {
   right: 5%;
 }
 
-button {
+.tiffviewer-button {
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) all;
 }
 
-button:not(:disabled):hover {
+.tiffviewer-button:not(:disabled):hover {
   background-color: #000;
   opacity: .8 !important;
 }
 
-.btnPrint {
+.tiffviewer-btnPrint {
   position: absolute;
   top: 5%;
   right: 5%;
@@ -113,11 +113,11 @@ button:not(:disabled):hover {
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.btnPrint:hover {
+.tiffviewer-btnPrint:hover {
   color: #fff;
 }
 
-.btnPrint svg {
+.tiffviewer-btnPrint svg {
   width: 20px;
   height: 20px;
 }
